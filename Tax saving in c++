@@ -1,0 +1,52 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+    //Variable declaration
+    double hours_worked[5], rate_hour, taxrate, gross_income;
+    double new_Cloth, cloth_supply, saving_bond = 0.0, parent_bond;
+    double num_of_hrs = 0.0;
+    double before_tax = 0.0;
+    double after_tax = 0.0;
+    
+    const double tax = 0.14;
+    const double Cloths_Money = 0.10;
+    const double Supplies = 0.01;
+    const double SavingBond = 0.25;
+    const double ParentBond = 0.50;
+    
+    cout<<"\n Enter the number of days in each week: ";
+    for(int i = 0; i < 5; i++)
+    {
+        cin>>hours_worked[i];
+    }
+    cout<<"\n Enter the rate per hour: ";
+    cin>>rate_hour;
+    
+    //calculation Part
+    for(int i = 0; i < 5; i++)
+    {
+        num_of_hrs += hours_worked[i];
+    }
+    before_tax = num_of_hrs * rate_hour;
+    taxrate = before_tax * tax;
+    after_tax = before_tax - taxrate;
+    gross_income = after_tax * Cloths_Money;
+    new_Cloth = after_tax * Supplies;
+    cloth_supply = after_tax -(gross_income + new_Cloth);
+    saving_bond = cloth_supply * SavingBond;
+    parent_bond = saving_bond * 0.50;
+    
+    // Dislaying output
+    cout<<"\n The number of worked hours is: " <<num_of_hrs;
+    cout<<"\n The income before the tax is: " <<before_tax;
+    cout<<"\n The tax is: " <<taxrate;
+    cout<<"\n The income after detecting the tax is: " <<after_tax;
+    cout<<"\n The money spent on Cloths is: " <<gross_income;
+    cout<<"\n The money spent on supplies is: " <<new_Cloth;
+    cout<<"\n The income after buying the Cloths and the supplies is: " <<cloth_supply;
+    cout<<"\n The money spent on saving bounds is: " <<saving_bond;
+    cout<<"\n The money spent on parents saving bounds is: " <<parent_bond;
+    return 0;
+}
